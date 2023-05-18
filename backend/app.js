@@ -9,6 +9,7 @@ const limiter = require('./middlewares/ratelimit');
 const errorHandler = require('./middlewares/errorHandler');
 const config = require('./config');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const app = express();
 
@@ -22,6 +23,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(requestLogger);
+app.use(cors);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.use(router);
 
