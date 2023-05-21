@@ -7,7 +7,7 @@ const checkError = require('../middlewares/checkError');
 const getCards = (req, res, next) => {
   Card.find({})
     .then((cards) => {
-      res.send(cards);
+      res.status(200).send(cards);
     })
     .catch(next);
 };
@@ -24,23 +24,20 @@ const createCard = (req, res, next) => {
 };
 
 const deleteCard = (req, res, next) => {
-  // console.log(req.params.cardId);
   const userId = req.user._id;
 
-  Card.findById(req.params.cardId)
+  Card.findByIdAndDelete(req.params.cardId)
     .then((card) => {
-      // console.log(card);
+      console.log(card);
       if (!card) {
         throw new DocumentNotFoundError('Такой карточки не существует.');
       }
       const ownerId = card.owner.toString();
 
-      if (ownerId === userId) {
-        Card.deleteOne({ _id: req.params.cardId })
-          .then(res.status(200).send(card));
-      } else {
+      if (ownerId !== userId) {
         throw new NoRightsError('У вас нет прав удалить данную карточку.');
       }
+      res.status(200).send(card);
     })
     .catch(next);
 };
