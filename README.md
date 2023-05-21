@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.68.117
+IP 158.160.68.117
 
 Frontend https://andrew.babushkin.nomoredomains.monster
 
