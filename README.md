@@ -4,12 +4,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/AndrewBabushkin/react-mesto-api-full-gha/tree/main
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.68.117
 
-Frontend https://...
+Frontend https://andrew.babushkin.nomoredomains.monster
 
-Backend https://...
+Backend https://api.andrew.babushkin.nomoredomains.monster

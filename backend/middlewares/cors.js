@@ -1,8 +1,8 @@
 const allowedCors = [
-  'http://.nomoredomains.monster',
-  'https://.nomoredomains.monster',
-  'http://api..nomoredomains.monster',
-  'https://api..nomoredomains.monster',
+  'http://andrew.babushkin.nomoredomains.monster',
+  'https://andrew.babushkin.nomoredomains.monster',
+  'http://api.andrew.babushkin.nomoredomains.monster',
+  'https://api.andrew.babushkin.nomoredomains.monster',
   'localhost:3000',
   'http://localhost:3000',
 ];
@@ -14,14 +14,11 @@ module.exports = (req, res, next) => {
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
   if (allowedCors.includes(origin)) {
-
-    res.header('Access-Control-Allow-Origin', origin);
+    return res.header('Access-Control-Allow-Origin', origin);
   }
 
   if (method === 'OPTIONS') {
-
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-
     res.header('Access-Control-Allow-Headers', requestHeaders);
 
     return res.end();
