@@ -2,7 +2,7 @@ function InfoTooltip({ isOpen, onClose, imageTooltip, titleTooltip }) {
   return (
     <div
       className={`popup popup_type_info-tooltip  ${
-        isOpen ? "popup_opened" : ""
+        isOpen ? 'popup_opened' : ''
       }`}
     >
       <div className="popup__container">

@@ -1,7 +1,7 @@
-import { Route } from "react-router-dom";
-import Card from "./Card.js";
-import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
-import { useContext } from "react";
+import { Route } from 'react-router-dom';
+import Card from './Card.js';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
+import { useContext } from 'react';
 function Main({
   onEditProfile,
   onAddPlace,
@@ -49,7 +49,7 @@ function Main({
 
       <section className="gallery" aria-label="Фотографии">
         <ul className="gallery__list">
-          {cards.map(({_id, link, name, likes, owner, }) => {
+          {cards.map(({ _id, link, name, likes, owner }) => {
             return (
               <Card
                 key={_id}

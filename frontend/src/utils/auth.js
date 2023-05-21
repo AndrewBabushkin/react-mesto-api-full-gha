@@ -1,4 +1,4 @@
-const baseUrL = "https://api.andrew.babushkin.nomoredomains.monster";
+const baseUrL = 'https://api.andrew.babushkin.nomoredomains.monster';
 
 const checkResponse = (response) => {
   if (response.ok) {
@@ -10,9 +10,9 @@ const checkResponse = (response) => {
 
 const register = (email, password) => {
   return fetch(`${baseUrL}/signup`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password }),
   }).then(checkResponse);
@@ -20,15 +20,15 @@ const register = (email, password) => {
 
 const authorize = (email, password) => {
   return fetch(`${baseUrL}/signin`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
   })
     .then(checkResponse)
     .then((data) => {
       if (data.token) {
         console.log(data.token);
-        localStorage.getItem("jwt", data.token);
+        localStorage.getItem('jwt', data.token);
 
         return data.token;
       }
@@ -37,9 +37,9 @@ const authorize = (email, password) => {
 
 const checkToken = (jwt) => {
   return fetch(`${baseUrL}/users/me`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${jwt}`,
     },
   }).then(checkResponse);

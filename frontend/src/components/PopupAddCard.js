@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import PopupWithForm from "./PopupWithForm";
+import { useState, useEffect } from 'react';
+import PopupWithForm from './PopupWithForm';
 
 function PopupAddCard({ isOpen, onClose, onAddPlace }) {
-  const [cardName, setCardName] = useState("");
-  const [cardLink, setLink] = useState("");
+  const [cardName, setCardName] = useState('');
+  const [cardLink, setLink] = useState('');
 
   function handleChangeCardName(event) {
     setCardName(event.target.value);
@@ -20,8 +20,8 @@ function PopupAddCard({ isOpen, onClose, onAddPlace }) {
     });
   }
   useEffect(() => {
-    setCardName("");
-    setLink("");
+    setCardName('');
+    setLink('');
   }, [isOpen]);
 
   return (
@@ -38,7 +38,7 @@ function PopupAddCard({ isOpen, onClose, onAddPlace }) {
         className="popup__input-field popup__input-field_type_title"
         name="name"
         onChange={handleChangeCardName}
-        value={cardName || ""}
+        value={cardName || ''}
         placeholder="Название места"
         required
         id="title-input"
@@ -51,7 +51,7 @@ function PopupAddCard({ isOpen, onClose, onAddPlace }) {
         className="popup__input-field popup__input-field_type_image"
         name="link"
         onChange={handleChangeCardLink}
-        value={cardLink || ""}
+        value={cardLink || ''}
         placeholder="Добавить фотографию"
         required
         id="image-input"

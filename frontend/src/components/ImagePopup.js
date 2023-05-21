@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 function ImagePopup({ isOpen, card, onClose }) {
   return (
-    <div className={`popup popup_type_zoom ${isOpen ? "popup_opened" : ""}`}>
+    <div className={`popup popup_type_zoom ${isOpen ? 'popup_opened' : ''}`}>
       <div className="popup__gallery">
         <button
           type="button"

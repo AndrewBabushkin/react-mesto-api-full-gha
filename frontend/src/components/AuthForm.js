@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function AuthForm({ children, nameForm, title, textButton, onSubmit }) {
   return (
@@ -11,7 +11,7 @@ function AuthForm({ children, nameForm, title, textButton, onSubmit }) {
         </button>
       </form>
 
-      {nameForm === "registrationForm" && (
+      {nameForm === 'registrationForm' && (
         <Link to="/sign-in" className="auth-form__link">
           Уже зарегистрированы? Войти
         </Link>

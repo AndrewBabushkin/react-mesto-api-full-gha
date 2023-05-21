@@ -20,7 +20,7 @@ class Api {
   //Редактирование профиля
   changeUserInfo(data) {
     return fetch(`${this._url}/users/me`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -31,7 +31,7 @@ class Api {
   //Обновление аватара пользователя
   changeUserAvatar(data) {
     return fetch(`${this._url}/users/me/avatar`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar,
@@ -47,7 +47,7 @@ class Api {
   //Добавление новой карточки
   getNewCard(data) {
     return fetch(`${this._url}/cards`, {
-      method: "POST",
+      method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -66,30 +66,30 @@ class Api {
   //Удаление карточки
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this._headers,
     }).then((response) => this._checkResponse(response));
   }
   //Постановка лайка
   setLikeCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: "PUT",
+      method: 'PUT',
       headers: this._headers,
     }).then((response) => this._checkResponse(response));
   }
   // Снятие лайка
   deleteLikeCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this._headers,
     }).then((response) => this._checkResponse(response));
   }
 }
 
 const configApi = {
-  url: "https://api.andrew.babushkin.nomoredomains.monster",
+  url: 'https://api.andrew.babushkin.nomoredomains.monster',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
 };

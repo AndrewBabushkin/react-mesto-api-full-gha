@@ -1,6 +1,6 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
-import InfoHeader from "./InfoHeader";
+import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import InfoHeader from './InfoHeader';
 
 function Header({ email, onClose, loggedIn }) {
   const location = useLocation();
@@ -12,7 +12,7 @@ function Header({ email, onClose, loggedIn }) {
         <InfoHeader email={email} onClose={onClose} />
       ) : (
         <>
-          {location.pathname === "/sign-up" ? (
+          {location.pathname === '/sign-up' ? (
             <Link className="header__link" to="/sign-in">
               Войти
             </Link>

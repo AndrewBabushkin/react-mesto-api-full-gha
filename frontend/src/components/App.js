@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
-import Header from "./Header.js";
-import Main from "./Main.js";
-import Footer from "./Footer.js";
-import ImagePopup from "./ImagePopup.js";
-import PopupEditProfile from "./PopupEditProfile.js";
-import PopupAddCard from "./PopupAddCard.js";
-import PopupEditAvatar from "./PopupEditAvatar.js";
-import api from "../utils/Api.js";
-import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
-import Login from "./Login.js";
-import Register from "./Register.js";
-import ProtectedRoute from "./ProtectedRoute.js";
-import InfoTooltip from "./InfoTooltip.js";
-import * as auth from "../utils/auth.js";
+import Header from './Header.js';
+import Main from './Main.js';
+import Footer from './Footer.js';
+import ImagePopup from './ImagePopup.js';
+import PopupEditProfile from './PopupEditProfile.js';
+import PopupAddCard from './PopupAddCard.js';
+import PopupEditAvatar from './PopupEditAvatar.js';
+import api from '../utils/Api.js';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
+import Login from './Login.js';
+import Register from './Register.js';
+import ProtectedRoute from './ProtectedRoute.js';
+import InfoTooltip from './InfoTooltip.js';
+import * as auth from '../utils/auth.js';
 
-import imageSuccess from "../images/isReg.svg";
-import imageUnSuccess from "../images/notReg.svg";
+import imageSuccess from '../images/isReg.svg';
+import imageUnSuccess from '../images/notReg.svg';
 
 function App() {
   // переменные состояния
@@ -33,11 +33,11 @@ function App() {
 
   const [loggedIn, setloggedId] = useState(false);
   const [message, setMessage] = useState({
-    imageTooltip: "",
-    titleTooltip: "",
+    imageTooltip: '',
+    titleTooltip: '',
   });
   const [isPopupTooltipOpen, setIsPopupTooltipOpen] = useState(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
   // отрытие попапов
@@ -142,16 +142,16 @@ function App() {
         setEmail(email);
         setMessage({
           imageTooltip: imageSuccess,
-          titleTooltip: "Вы успешно зарегистрировались!",
+          titleTooltip: 'Вы успешно зарегистрировались!',
         });
-        console.log(setMessage)
-        navigate("/sign-in", { replace: true });
+        console.log(setMessage);
+        navigate('/sign-in', { replace: true });
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
         setMessage({
           imageTooltip: imageUnSuccess,
-          titleTooltip: "Что-то пошло не так! Попробуйте ещё раз.",
+          titleTooltip: 'Что-то пошло не так! Попробуйте ещё раз.',
         });
       })
       .finally(() => {
@@ -166,13 +166,13 @@ function App() {
         setloggedId(true);
         setEmail(email);
         console.log(token);
-        localStorage.setItem("jwt", token);
-        navigate("/", { replace: true });
+        localStorage.setItem('jwt', token);
+        navigate('/', { replace: true });
       })
       .catch((err) => {
         setMessage({
           imageTooltip: imageUnSuccess,
-          titleTooltip: "Что-то пошло не так! Попробуйте ещё раз.",
+          titleTooltip: 'Что-то пошло не так! Попробуйте ещё раз.',
         });
         setIsPopupTooltipOpen(true);
         console.log(`Error: ${err}`);
@@ -182,13 +182,13 @@ function App() {
   // функция выхода
   function onSingOut() {
     setloggedId(false);
-    localStorage.removeItem("jwt");
+    localStorage.removeItem('jwt');
   }
   // проверка наличия токена
   function tokenCheck() {
-    console.log(localStorage);
-    const jwt = localStorage.getItem("jwt");
-    console.log(jwt);
+    // console.log(localStorage);
+    const jwt = localStorage.getItem('jwt');
+    // console.log(jwt);
     if (jwt) {
       auth
         .checkToken(jwt)
@@ -197,7 +197,7 @@ function App() {
             console.log(res);
             setloggedId(true);
             setEmail(res.email);
-            navigate("/", { replace: true });
+            navigate('/', { replace: true });
           }
         })
         .catch((err) => console.log(`Error: ${err}`));

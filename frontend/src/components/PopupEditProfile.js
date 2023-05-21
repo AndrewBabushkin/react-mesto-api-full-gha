@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from 'react';
 
-import PopupWithForm from "./PopupWithForm";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import PopupWithForm from './PopupWithForm';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function PopupEditProfile({ isOpen, onClose, onUpdateUser }) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
   const currentUser = useContext(CurrentUserContext);
 
@@ -49,7 +49,7 @@ function PopupEditProfile({ isOpen, onClose, onUpdateUser }) {
         minLength="2"
         maxLength="40"
         onChange={handleChangeName}
-        value={name || ""}
+        value={name || ''}
       />
       <span className="name-input-error popup__input-error"></span>
       <input
@@ -63,7 +63,7 @@ function PopupEditProfile({ isOpen, onClose, onUpdateUser }) {
         minLength="2"
         maxLength="200"
         onChange={handleChangeAbout}
-        value={description || ""}
+        value={description || ''}
       />
       <span className="profession-input-error popup__input-error"></span>
     </PopupWithForm>

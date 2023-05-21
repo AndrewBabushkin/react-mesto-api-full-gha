@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import AuthForm from "./AuthForm";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthForm from './AuthForm';
 
 function Login({ onLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleChangeUserEmail = (event) => {
     setEmail(event.target.value);
@@ -17,8 +17,8 @@ function Login({ onLogin }) {
   };
 
   const resetForm = () => {
-    setEmail("");
-    setPassword("");
+    setEmail('');
+    setPassword('');
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function Login({ onLogin }) {
         required
         minLength="2"
         maxLength="50"
-        value={email || ""}
+        value={email || ''}
         onChange={handleChangeUserEmail}
       ></input>
       <span className="auth-form__input-error"></span>
@@ -57,7 +57,7 @@ function Login({ onLogin }) {
         required
         minLength="3"
         maxLength="50"
-        value={password || ""}
+        value={password || ''}
         onChange={handleChangePassword}
       ></input>
       <span className="auth-form__input-error"></span>

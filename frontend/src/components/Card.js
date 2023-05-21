@@ -1,5 +1,5 @@
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import { useContext } from "react";
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { useContext } from 'react';
 
 function Card({
   cardId,
@@ -12,7 +12,6 @@ function Card({
   onCardLike,
   onCardDelete,
 }) {
-
   function handleClick() {
     onCardClick({ link, title });
   }
@@ -26,13 +25,13 @@ function Card({
   }
 
   const currentUser = useContext(CurrentUserContext);
-  
+
   const isOwn = ownerId === currentUser._id;
-  
+
   const isLiked = likes.some((i) => i === currentUser._id);
 
   const cardLikeButtonClassName = `card__heart-button ${
-    isLiked && "card__heart-button_active"
+    isLiked && 'card__heart-button_active'
   }`;
 
   return (

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import AuthForm from "./AuthForm";
+import AuthForm from './AuthForm';
 
 function Register({ onRegister }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleChangeUserEmail = (event) => {
     setEmail(event.target.value);
@@ -15,8 +15,8 @@ function Register({ onRegister }) {
   };
 
   const resetForm = () => {
-    setEmail("");
-    setPassword("");
+    setEmail('');
+    setPassword('');
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function Register({ onRegister }) {
         required
         minLength="2"
         maxLength="50"
-        value={email || ""}
+        value={email || ''}
         onChange={handleChangeUserEmail}
       ></input>
       <span className="auth-form__input-error"></span>
@@ -56,7 +56,7 @@ function Register({ onRegister }) {
         required
         minLength="6"
         maxLength="50"
-        value={password || ""}
+        value={password || ''}
         onChange={handleChangePassword}
       ></input>
     </AuthForm>
