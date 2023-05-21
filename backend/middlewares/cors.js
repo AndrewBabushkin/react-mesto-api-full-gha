@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', origin);
   }
   const requestHeaders = req.headers['access-control-request-headers'];
-  console.log(requestHeaders);
+
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);

@@ -69,8 +69,8 @@ function App() {
   useEffect(() => {
     Promise.all([api.getInitialCards(), api.getUserInfo()])
       .then(([data, user]) => {
-        console.log(user);
-        console.log(data);
+        // console.log(user);
+        // console.log(data);
         setCards(data);
         setCurrentUser(user);
       })
