@@ -16,22 +16,17 @@ const {
   deleteLikeCard,
 } = require('../controllers/cards');
 
+const checkRightsDeleteCard = require('../middlewares/checkRightsDeleteCard');
+
 cardRouter.get('/', getCards);
-cardRouter.post(
-  '/',
-  celebrate(createCardValidation),
-  createCard,
-);
+cardRouter.post('/', celebrate(createCardValidation), createCard);
 cardRouter.delete(
   '/:cardId',
   celebrate(deleteCardValidation),
+  checkRightsDeleteCard,
   deleteCard,
 );
-cardRouter.put(
-  '/:cardId/likes',
-  celebrate(addLikeValidation),
-  addLikeCard,
-);
+cardRouter.put('/:cardId/likes', celebrate(addLikeValidation), addLikeCard);
 cardRouter.delete(
   '/:cardId/likes',
   celebrate(deleteLikeValidation),

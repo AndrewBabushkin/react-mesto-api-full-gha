@@ -1,7 +1,6 @@
 const Card = require('../models/card');
 const checkCard = require('../middlewares/checkCard');
 const DocumentNotFoundError = require('../errors/DocumentNotFoundError');
-const NoRightsError = require('../errors/NoRightsError');
 const checkError = require('../middlewares/checkError');
 
 const getCards = (req, res, next) => {
@@ -24,20 +23,13 @@ const createCard = (req, res, next) => {
 };
 
 const deleteCard = (req, res, next) => {
-  const userId = req.user._id;
-
-  Card.findByIdAndDelete(req.params.cardId)
+  Card.deleteOne({ _id: req.params.cardId })
     .then((card) => {
-      console.log(card);
-      if (!card) {
+      // console.log(card);
+      if (card.deletedCount === 0) {
         throw new DocumentNotFoundError('Такой карточки не существует.');
       }
-      const ownerId = card.owner.toString();
-
-      if (ownerId !== userId) {
-        throw new NoRightsError('У вас нет прав удалить данную карточку.');
-      }
-      res.status(200).send(card);
+      return res.status(200).send({ message: 'Карточка удалена' });
     })
     .catch(next);
 };
